@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 - Higher or Lower Game</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center vh-100">
+
+    <div class="card shadow p-4 text-center" style="max-width: 400px; width: 100%;">
+        <h2 class="mb-3 text-primary">Higher or Lower 📈📉</h2>
+        <p class="text-muted">Guess if the next hidden number is higher or lower than the current one!</p>
+        
+        <div class="alert alert-secondary py-2">
+            <strong>Lives:</strong> <span id="lives-display">3</span> | 
+            <strong>Streak:</strong> <span id="streak-display">0</span>
+        </div>
+
+        <div class="my-4">
+            <span class="fs-6 text-uppercase text-secondary">Current Item Value</span>
+            <h1 id="current-value" class="display-3 fw-bold text-dark">--</h1>
+        </div>
+
+        <div class="d-grid gap-2 d-flex justify-content-center mb-3">
+            <button id="higher-btn" class="btn btn-success flex-fill py-2 fw-semibold">Higher ⬆️</button>
+            <button id="lower-btn" class="btn btn-danger flex-fill py-2 fw-semibold">Lower ⬇️</button>
+        </div>
+
+        <div id="game-message" class="alert d-none mb-0" role="alert"></div>
+    </div>
+
+    <!-- JavaScript with defer -->
+    <script src="task1.js" defer></script>
+</body>
+</html> 

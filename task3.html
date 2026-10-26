@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3 - Character Creator Form</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container py-5" style="max-width: 600px;">
+        <div class="card shadow p-4 bg-white border-0">
+            <h2 class="mb-3 text-center text-primary fw-bold">🧙‍♂️ RPG Character Creator</h2>
+            
+            <!-- Error summary banner -->
+            <div id="error-summary" class="alert alert-danger d-none" role="alert" tabindex="-1"></div>
+
+            <form id="char-form" novalidate>
+                <!-- Field 1: Character Name -->
+                <div class="mb-3">
+                    <label for="char-name" class="form-label fw-semibold">Character Name</label>
+                    <input type="text" id="char-name" class="form-control" required minlength="3" aria-describedby="name-feedback">
+                    <div id="name-feedback" class="invalid-feedback">Name must be at least 3 characters long and cannot be already taken (e.g., Arthas, Gandalf).</div>
+                </div>
+
+                <!-- Field 2: Class Selection -->
+                <div class="mb-3">
+                    <label for="char-class" class="form-label fw-semibold">Class</label>
+                    <select id="char-class" class="form-select" required>
+                        <option value="">Choose class...</option>
+                        <option value="Mage">Mage (Requires Intelligence >= 7)</option>
+                        <option value="Warrior">Warrior</option>
+                        <option value="Rogue">Rogue</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a valid class.</div>
+                </div>
+
+                <!-- Points counter -->
+                <div class="alert alert-info py-2 text-center fw-semibold">
+                    Skill Points Left: <span id="points-counter">20</span> / 20 (Must equal exactly 0)
+                </div>
+
+                <!-- Fields 3, 4, 5: Skills -->
+                <div class="mb-3">
+                    <label for="skill-str" class="form-label">Strength (1-10)</label>
+                    <input type="number" id="skill-str" class="form-control skill-input" value="6" min="1" max="10">
+                </div>
+                <div class="mb-3">
+                    <label for="skill-agi" class="form-label">Agility (1-10)</label>
+                    <input type="number" id="skill-agi" class="form-control skill-input" value="7" min="1" max="10">
+                </div>
+                <div class="mb-3">
+                    <label for="skill-int" class="form-label">Intelligence (1-10)</label>
+                    <input type="number" id="skill-int" class="form-control skill-input" value="7" min="1" max="10">
+                </div>
+
+                <!-- Field 6: Bio -->
+                <div class="mb-3">
+                    <label for="char-bio" class="form-label fw-semibold">Backstory Bio</label>
+                    <textarea id="char-bio" class="form-control" rows="2" placeholder="Write a short bio (no forbidden words like 'cheat')..."></textarea>
+                    <div id="bio-feedback" class="invalid-feedback">Bio cannot contain forbidden words like 'cheat'.</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Create Character Card</button>
+            </form>
+        </div>
+
+        <!-- Live Preview / Result Card Container -->
+        <div id="result-container" class="mt-4"></div>
+    </div>
+
+    <!-- JavaScript with defer -->
+    <script src="task3.js" defer></script>
+</body>
+</html> 
